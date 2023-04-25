@@ -92,6 +92,10 @@ a {
   z-index: 10;
 }
 
+#home .glass-card {
+  transform: translateX(-100%);
+}
+
 #home .glass-card .top-section {
   position: absolute;
   top: 50%;
@@ -168,7 +172,7 @@ a {
       )
       /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
     radial-gradient(
-      farthest-corner at 50% 50%,
+        farthest-corner at 50% 50%,
         rgba(23, 179, 132, 0.8) 0%,
         rgba(23, 179, 132, 0) 100%
       )
@@ -231,13 +235,16 @@ a {
 }
 
 #home .header-image {
-  width: 50%;
+  width: 75%;
   position: absolute;
   z-index: -100;
-  right: -25%;
+  right: -35%;
+  transform: translateX(-100%);
+  /* transform: translateX(50%); */
 }
 
 #about-us .header-image {
+  transform: translate(-100%);
   width: 40%;
   height: 100vh;
   position: absolute;
@@ -250,6 +257,7 @@ a {
 }
 
 #about-us .glass-card {
+  transform: translateX(-100%);
   padding: 5em;
   display: flex;
   align-items: center;
@@ -283,12 +291,90 @@ a {
   font-size: 20px;
 }
 
-#home.hidden .header-image {
-  transform: rotate(360deg) scale(0) translateX(100%);
-  transition: all 1s;
+#home.hidden {
+  animation: 500ms forwards home-glass-card-hidden;
+  animation-delay: 200ms;
+}
+
+#home.show {
+  animation: 500ms forwards home-show;
 }
 
 #home.show .header-image {
-  transform: rotate(360deg) scale(1) translateX(0);
-  transition: all 1s;
+  animation: 500ms forwards home-show;
+  animation-delay: 100ms;
+}
+
+#home.show .glass-card {
+  animation: 500ms forwards home-show;
+  animation-delay: 200ms;
+}
+
+#home.hidden .header-image {
+  animation: 500ms forwards home-header-image-hidden;
+}
+
+#home.hidden .glass-card {
+  animation: 500ms forwards home-glass-card-hidden;
+  /* animation-delay: 100ms; */
+}
+
+#about-us.show .header-image,
+#about-us.show .glass-card {
+  animation: 500ms forwards about-us-show;
+}
+
+#about-us.hidden .header-image,
+#about-us.hidden .glass-card {
+  animation: 500ms forwards about-us-hidden;
+}
+
+@keyframes home-header-image-hidden {
+  from {
+    transform: rotate(0) scale(1);
+  }
+
+  to {
+    transform: rotate(270deg) scale(0);
+  }
+}
+
+@keyframes home-glass-card-hidden {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes home-show {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes about-us-show {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes about-us-hidden {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
