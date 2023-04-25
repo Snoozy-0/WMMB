@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <h1>Vencemart</h1>
+
+      <ul>
+        <li>
+          <a href="#home" class="nav-link" data-target="#home">Home</a>
+          <span></span>
+        </li>
+        <li>
+          <a href="#about-us" class="nav-link" data-target="#about-us"
+            >About Us</a
+          >
+          <span></span>
+        </li>
+        <li>
+          <a href="#product" class="nav-link" data-target="#product">Product</a>
+          <span></span>
+        </li>
+        <li>
+          <a href="#why-us" class="nav-link" data-target="#why-us">Why Us</a>
+          <span></span>
+        </li>
+        <li>
+          <a href="#testimoni" class="nav-link" data-target="#testimoni"
+            >Testimoni</a
+          >
+          <span></span>
+        </li>
+        <li>
+          <a href="#contact" class="nav-link" data-target="#contact">Contact</a>
+          <span></span>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section class="glass" id="home" style="z-index: 3;">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+
+        <div class="content">
+          <img class="header-image" src="./assets/earth.png" alt="earth.png" />
+          <div class="glass-card">
+            <div class="top-section">
+              <h1>Discover the best oil and gas products</h1>
+              <p>
+                From drilling equipment to industrial supplies, we've got you
+                covered. Shop now and experience hassle-free online shopping for
+                all your oil and gas needs.
+              </p>
+              <button>Signup Now</button>
+            </div>
+
+            <div class="bottom-section">
+              <div>
+                <h2>50,000</h2>
+                <p>Satisfied Customer</p>
+              </div>
+              <div>
+                <h2>200</h2>
+                <p>High Quality Products</p>
+              </div>
+              <div>
+                <h2>24/7</h2>
+                <p>Customer Support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="glass" id="about-us" style="z-index: 2;">
+        <div class="content">
+          <img class="header-image" src="./assets/factory.png" alt="factory" />
+
+          <div class="glass-card-container">
+            <div class="glass-card">
+              <h1>About Us</h1>
+              <p>
+                At Vencemart, we understand the challenges that come with
+                selling oil and gas products. That's why we've created a
+                platform that simplifies the process and connects sellers with
+                buyers worldwide. Our mission is to empower oil and gas
+                businesses to reach their full potential by providing them with
+                the tools and support they need to succeed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="glass" id="product" style="z-index: 1;">
+        <div class="color" style="width: 300px; height: 300px"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+
+        <div class="content">
+          <div class="glass-card-container">
+            <div class="glass-card">
+              <img class="icon" src="./assets/customer.png" alt="" />
+              <h2 class="title">Access to a large customer base</h2>
+              <p>
+                Unprocessed oil extracted from the ground, commonly referred to
+                as crude oil.
+              </p>
+            </div>
+            <div class="glass-card">
+              <img class="icon" src="./assets/payment.png" alt="" />
+              <h2 class="title">Easy and secure payment system</h2>
+              <p>
+                Unprocessed oil extracted from the ground, commonly referred to
+                as crude oil.
+              </p>
+            </div>
+            <div class="glass-card">
+              <img class="icon" src="./assets/announcement.png" alt="" />
+              <h2 class="title">
+                Marketing support help you increase visibility
+              </h2>
+              <p>
+                Unprocessed oil extracted from the ground, commonly referred to
+                as crude oil.
+              </p>
+            </div>
+            <div class="glass-card">
+              <img class="icon" src="./assets/dashboard.png" alt="" />
+              <h2 class="title">
+                Seller dashboard to manage sales efficiently
+              </h2>
+              <p>
+                Unprocessed oil extracted from the ground, commonly referred to
+                as crude oil.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="main-content"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(() => {
+        let prev = '#home'
+
+        $(document).on("click", ".nav-link", function (e) {
+          e.preventDefault();
+          console.log("clicked")
+
+          var id = $(this).attr("href"),
+            topSpace = 30;
+
+          console.log(id, $(id).offset().left)
+          
+          $(prev).addClass('hidden')
+          $(prev).removeClass('show')
+
+          setTimeout(() => {
+            $(prev).css("z-index", 2)
+  
+            prev = id
+  
+            $(id).css("z-index", 3).removeClass('hidden').addClass("show")
+          }, 1000)
+        });
+      });
+    </script>
+  </body>
+</html>
