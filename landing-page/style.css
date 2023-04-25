@@ -1,0 +1,380 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --black: #110d1d;
+  --red: #c23660;
+  --cyan: #1cd1da;
+  --blue: #24446e;
+  --grey: #29619e;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+}
+
+.glass {
+  background-color: #0b0b17;
+  flex: none;
+  /* scroll-snap-align: start; */
+  position: fixed;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  /* background: linear-gradient(to bottom, #f1f4f9, #dff1ff); */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.glass .color {
+  position: absolute;
+  filter: blur(100px);
+}
+.glass .color:nth-child(1) {
+  left: 35px;
+  width: 200px;
+  height: 200px;
+  background: var(--red);
+}
+.glass .color:nth-child(2) {
+  top: 100px;
+  right: 100px;
+  width: 200px;
+  height: 100px;
+  background: var(--blue);
+}
+
+.content {
+  z-index: 2;
+  display: flex;
+  height: 100vh;
+  color: white;
+  z-index: 1;
+}
+
+#home .content {
+  width: 50%;
+  padding: 5em;
+  padding-right: 0;
+  align-items: center;
+  position: relative;
+}
+
+#about-us .content {
+  width: 100%;
+}
+
+.glass-card {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  border-radius: 10px;
+
+  position: relative;
+  z-index: 10;
+}
+
+#home .glass-card {
+  transform: translateX(-100%);
+}
+
+#home .glass-card .top-section {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 5em;
+}
+
+#home .glass-card .top-section h1 {
+  font-weight: 900;
+  font-size: 3em;
+  margin-bottom: 0.8em;
+  line-height: 1em;
+}
+
+#home .glass-card .top-section p {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+#home .glass-card .top-section button {
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 1em 3em;
+  font-size: 1em;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  display: block;
+  margin-bottom: 1em;
+  transition: all 100ms;
+}
+
+#home .glass-card .top-section button:hover {
+  background-color: white;
+  color: black;
+  transition: all 100ms;
+}
+
+#home .glass-card .bottom-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3em;
+  padding: 0 4em;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#home .glass-card .bottom-section div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home .glass-card .bottom-section div p {
+  width: 70%;
+}
+
+#product .glass-card {
+  padding: 3em;
+
+  border-width: 1px;
+  border-style: solid;
+
+  border: 1px solid;
+
+  border-image-source: radial-gradient(
+        farthest-corner at 50% 50%,
+        rgba(21, 21, 21, 0.8) 0%,
+        rgba(21, 21, 21, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+        farthest-corner at 50% 50%,
+        rgba(23, 179, 132, 0.8) 0%,
+        rgba(23, 179, 132, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+        farthest-corner at 50% 50%,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
+
+#product .glass-card .icon {
+  width: 6em;
+}
+
+#product .glass-card .title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  z-index: 1000;
+
+  padding: 5em;
+}
+
+.sidebar h1 {
+  font-size: 2em;
+  text-align: right;
+  margin-bottom: 2em;
+  color: white;
+}
+
+.sidebar ul {
+  list-style: none;
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 1.5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.sidebar ul li {
+  display: flex;
+  justify-content: end;
+  place-items: center;
+  width: 300px;
+}
+
+.sidebar ul li span {
+  margin-left: 1em;
+  height: 1px;
+  width: 50px;
+  border-top: 1px solid white;
+}
+
+#home .header-image {
+  width: 75%;
+  position: absolute;
+  z-index: -100;
+  right: -35%;
+  transform: translateX(-100%);
+  /* transform: translateX(50%); */
+}
+
+#about-us .header-image {
+  transform: translate(-100%);
+  width: 40%;
+  height: 100vh;
+  position: absolute;
+  object-fit: cover;
+}
+
+#about-us .glass-card-container {
+  padding: 10em 25em;
+  width: 100%;
+}
+
+#about-us .glass-card {
+  transform: translateX(-100%);
+  padding: 5em;
+  display: flex;
+  align-items: center;
+}
+
+#about-us .glass-card h1 {
+  flex: 4;
+  font-size: 4em;
+  font-weight: 900;
+}
+
+#about-us .glass-card p {
+  flex: 5;
+  font-size: 1.5em;
+}
+
+#product .glass-card-container {
+  padding: 8em 40em 8em 10em;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 4em;
+}
+
+.logo-content .logo i {
+  font-size: 28px;
+  margin-right: 5px;
+}
+.logo-content .logo h3 {
+  font-size: 20px;
+}
+
+#home.hidden {
+  animation: 500ms forwards home-glass-card-hidden;
+  animation-delay: 200ms;
+}
+
+#home.show {
+  animation: 500ms forwards home-show;
+}
+
+#home.show .header-image {
+  animation: 500ms forwards home-show;
+  animation-delay: 100ms;
+}
+
+#home.show .glass-card {
+  animation: 500ms forwards home-show;
+  animation-delay: 200ms;
+}
+
+#home.hidden .header-image {
+  animation: 500ms forwards home-header-image-hidden;
+}
+
+#home.hidden .glass-card {
+  animation: 500ms forwards home-glass-card-hidden;
+  /* animation-delay: 100ms; */
+}
+
+#about-us.show .header-image,
+#about-us.show .glass-card {
+  animation: 500ms forwards about-us-show;
+}
+
+#about-us.hidden .header-image,
+#about-us.hidden .glass-card {
+  animation: 500ms forwards about-us-hidden;
+}
+
+@keyframes home-header-image-hidden {
+  from {
+    transform: rotate(0) scale(1);
+  }
+
+  to {
+    transform: rotate(270deg) scale(0);
+  }
+}
+
+@keyframes home-glass-card-hidden {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes home-show {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes about-us-show {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes about-us-hidden {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
