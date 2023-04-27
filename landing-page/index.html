@@ -33,11 +33,11 @@
           <span></span>
         </li>
         <li>
-          <a href="#product" class="nav-link" data-target="#product">Product</a>
+          <a href="#why-us" class="nav-link" data-target="#why-us">Why Us</a>
           <span></span>
         </li>
         <li>
-          <a href="#why-us" class="nav-link" data-target="#why-us">Why Us</a>
+          <a href="#blog" class="nav-link" data-target="#blog">Blog</a>
           <span></span>
         </li>
         <li>
@@ -54,12 +54,11 @@
     </nav>
 
     <div class="container">
-      <section class="glass show" id="home" style="z-index: 3;">
-        <div class="color"></div>
+      <section class="glass">
         <div class="color"></div>
         <div class="color"></div>
 
-        <div class="content">
+        <div class="content show" id="home" style="z-index: 4;">
           <img class="header-image" src="./assets/earth.png" alt="earth.png" />
           <div class="glass-card">
             <div class="top-section">
@@ -88,9 +87,8 @@
             </div>
           </div>
         </div>
-      </section>
-      <section class="glass" id="about-us" style="z-index: 2;">
-        <div class="content">
+
+        <div class="content" id="about-us" style="z-index: 3;">
           <img class="header-image" src="./assets/factory.png" alt="factory" />
 
           <div class="glass-card-container">
@@ -107,15 +105,10 @@
             </div>
           </div>
         </div>
-      </section>
-      <section class="glass" id="product" style="z-index: 1;">
-        <div class="color" style="width: 300px; height: 300px"></div>
-        <div class="color"></div>
-        <div class="color"></div>
 
-        <div class="content">
+        <div class="content" id="why-us" style="z-index: 2;">
           <div class="glass-card-container">
-            <div class="glass-card">
+            <div class="glass-card" style="--from: translateX(-250%); --to: translateX(0)">
               <img class="icon" src="./assets/customer.png" alt="" />
               <h2 class="title">Access to a large customer base</h2>
               <p>
@@ -123,7 +116,7 @@
                 as crude oil.
               </p>
             </div>
-            <div class="glass-card">
+            <div class="glass-card" style="--from: translateY(-250%); --to: translateY(0)">
               <img class="icon" src="./assets/payment.png" alt="" />
               <h2 class="title">Easy and secure payment system</h2>
               <p>
@@ -131,7 +124,7 @@
                 as crude oil.
               </p>
             </div>
-            <div class="glass-card">
+            <div class="glass-card" style="--from: translateY(250%); --to: translateY(0)">
               <img class="icon" src="./assets/announcement.png" alt="" />
               <h2 class="title">
                 Marketing support help you increase visibility
@@ -141,7 +134,7 @@
                 as crude oil.
               </p>
             </div>
-            <div class="glass-card">
+            <div class="glass-card" style="--from: translateX(250%); --to: translateX(0)">
               <img class="icon" src="./assets/dashboard.png" alt="" />
               <h2 class="title">
                 Seller dashboard to manage sales efficiently
@@ -150,6 +143,43 @@
                 Unprocessed oil extracted from the ground, commonly referred to
                 as crude oil.
               </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content" id="blog" style="z-index: 1;">
+          <div class="featured">
+            <div class="blog-card">
+              <div class="image"></div>
+
+              <h5 class="title">title</h5>
+              <p class="text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, esse.</p>
+            </div>
+          </div>
+          <div class="news">
+            <div class="blog-card">
+              <div class="image"></div>
+
+              <h5 class="title">title</h5>
+              <p class="text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, esse.</p>
+            </div>
+            <div class="blog-card">
+              <div class="image"></div>
+
+              <h5 class="title">title</h5>
+              <p class="text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, esse.</p>
+            </div>
+            <div class="blog-card">
+              <div class="image"></div>
+
+              <h5 class="title">title</h5>
+              <p class="text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, esse.</p>
+            </div>
+            <div class="blog-card">
+              <div class="image"></div>
+
+              <h5 class="title">title</h5>
+              <p class="text-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, esse.</p>
             </div>
           </div>
         </div>
@@ -186,7 +216,7 @@
             prev = id
   
             $(id).css("z-index", 3).removeClass('hidden').addClass("show")
-          }, 500)
+          }, 400)
         });
       });
     </script>
