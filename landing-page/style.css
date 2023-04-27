@@ -27,10 +27,11 @@ body {
 }
 
 .glass {
+  overflow: hidden;
   background-color: #0b0b17;
   flex: none;
   /* scroll-snap-align: start; */
-  position: fixed;
+  position: relative;
   display: flex;
   align-items: center;
   min-height: 100vh;
@@ -47,13 +48,13 @@ a {
   position: absolute;
   filter: blur(100px);
 }
-.glass .color:nth-child(1) {
+.glass .color:first-of-type {
   left: 35px;
   width: 200px;
   height: 200px;
   background: var(--red);
 }
-.glass .color:nth-child(2) {
+.glass .color:nth-of-type(2) {
   top: 100px;
   right: 100px;
   width: 200px;
@@ -66,19 +67,43 @@ a {
   display: flex;
   height: 100vh;
   color: white;
-  z-index: 1;
+  position: absolute;
 }
 
-#home .content {
+#home.content {
   width: 50%;
   padding: 5em;
   padding-right: 0;
-  align-items: center;
-  position: relative;
+  align-items: center; 
 }
 
-#about-us .content {
+#about-us.content {
   width: 100%;
+}
+
+#blog.content {
+  width: calc(100% - 30em);
+  display: flex;
+  padding: 3em 0 3em 3em;
+  opacity: 0;
+  align-items: center;
+}
+
+#blog.show {
+  animation: 500ms forwards opacity-show;
+}
+
+#blog.hidden {
+  animation: 500ms forwards opacity-hidden;
+}
+
+#testimoni.content {
+  width: calc(100% - 20em);
+  padding: 3em;
+  padding-right: 0;
+
+  display: flex;
+  gap: 5em;
 }
 
 .glass-card {
@@ -157,7 +182,7 @@ a {
   width: 70%;
 }
 
-#product .glass-card {
+#why-us .glass-card {
   padding: 3em;
 
   border-width: 1px;
@@ -185,13 +210,80 @@ a {
       /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 }
 
-#product .glass-card .icon {
+#why-us .glass-card .icon {
   width: 6em;
 }
 
-#product .glass-card .title {
+#why-us .glass-card .title {
   font-size: 1.5em;
   margin-bottom: 1em;
+}
+
+#testimoni .glass-card-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em;
+}
+
+#testimoni .partners {
+  width: 100%;
+  display: grid;
+  place-items: center;
+
+  opacity: 0;
+}
+
+#testimoni .partners h1 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#testimoni .partners .partners-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8em;
+}
+
+#testimoni .partners .partners-container .partner {
+  width: 150px;
+  height: 150px;
+
+  display: grid;
+  place-items: center;
+}
+
+#testimoni .partners .partners-container .partner img{
+  width: 100%;
+}
+
+#testimoni .glass-card {
+  padding: 2em;
+  display: grid;
+  place-items: center;
+
+  transform: translateX(-150%);
+}
+
+#testimoni .glass-card .testimoni-content {
+  margin-bottom: 2em;
+}
+
+#testimoni .glass-card .testimoni-stars {
+  margin-bottom: 5px;
+}
+
+#testimoni .glass-card .testimoni-user {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#testimoni .glass-card .testimoni-date {
+  font-weight: 400;
+  font-size: 0.8em;
+  color: #BAE8E8;
 }
 
 .sidebar {
@@ -234,6 +326,44 @@ a {
   border-top: 1px solid white;
 }
 
+.featured {
+  padding: 10em;
+  flex: 4;
+}
+
+.blog-card {
+  width: 100%;
+  height: 100%;
+}
+
+.blog-card .image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+}
+
+.blog-card .title {
+  font-size: 1.8em;
+  margin-top: 0.5em;
+}
+
+.blog-card .text-content {
+  word-wrap: break-word;
+  margin-top: 5px;
+}
+
+.news {
+  flex: 7;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.news .image {
+  aspect-ratio: 4 / 3;
+}
+
 #home .header-image {
   width: 75%;
   position: absolute;
@@ -244,7 +374,7 @@ a {
 }
 
 #about-us .header-image {
-  transform: translate(-100%);
+  transform: translate(-200%);
   width: 40%;
   height: 100vh;
   position: absolute;
@@ -257,7 +387,7 @@ a {
 }
 
 #about-us .glass-card {
-  transform: translateX(-100%);
+  transform: translateX(-200%);
   padding: 5em;
   display: flex;
   align-items: center;
@@ -274,13 +404,29 @@ a {
   font-size: 1.5em;
 }
 
-#product .glass-card-container {
+#why-us .glass-card-container {
   padding: 8em 40em 8em 10em;
   width: 100%;
 
   display: grid;
   grid-template-columns: auto auto;
   gap: 4em;
+}
+
+#why-us .glass-card:first-of-type {
+  transform: var(--from);
+}
+
+#why-us .glass-card:nth-of-type(2) {
+  transform: var(--from);
+}
+
+#why-us .glass-card:nth-of-type(3) {
+  transform: var(--from);
+}
+
+#why-us .glass-card:last-of-type {
+  transform: var(--from);
 }
 
 .logo-content .logo i {
@@ -293,7 +439,7 @@ a {
 
 #home.hidden {
   animation: 500ms forwards home-glass-card-hidden;
-  animation-delay: 200ms;
+  animation-delay: 500ms;
 }
 
 #home.show {
@@ -329,6 +475,62 @@ a {
   animation: 500ms forwards about-us-hidden;
 }
 
+#why-us.show .glass-card:first-of-type {
+  animation: 500ms forwards product-glass-card-show;
+}
+
+#why-us.show .glass-card:nth-of-type(2) {
+  animation: 500ms forwards product-glass-card-show;
+}
+
+#why-us.show .glass-card:nth-of-type(3) {
+  animation: 500ms forwards product-glass-card-show;
+}
+
+#why-us.show .glass-card:last-of-type {
+  animation: 500ms forwards product-glass-card-show;
+}
+
+#why-us.hidden .glass-card {
+  animation: 500ms forwards product-glass-card-hidden;
+}
+
+#testimoni.show .glass-card:first-of-type {
+  animation: 500ms forwards testimoni-card-show;
+}
+
+#testimoni.show .glass-card:nth-of-type(2) {
+  animation: 500ms forwards testimoni-card-show;
+  animation-delay: 100ms;
+}
+
+#testimoni.show .glass-card:last-of-type {
+  animation: 500ms forwards testimoni-card-show;
+  animation-delay: 200ms;
+}
+
+#testimoni.show .partners {
+  animation: 500ms forwards opacity-show;
+}
+
+#testimoni.hidden .glass-card:first-of-type {
+  animation: 500ms forwards testimoni-card-hidden;
+}
+
+#testimoni.hidden .glass-card:nth-of-type(2) {
+  animation: 500ms forwards testimoni-card-hidden;
+  animation-delay: 100ms;
+}
+
+#testimoni.hidden .glass-card:last-of-type {
+  animation: 500ms forwards testimoni-card-hidden;
+  animation-delay: 200ms;
+}
+
+#testimoni.hidden .partners {
+  animation: 500ms forwards opacity-hidden;
+}
+
 @keyframes home-header-image-hidden {
   from {
     transform: rotate(0) scale(1);
@@ -345,7 +547,7 @@ a {
   }
 
   to {
-    transform: translateX(-100%);
+    transform: translateX(-150%);
   }
 }
 
@@ -375,6 +577,64 @@ a {
   }
 
   to {
-    transform: translateX(-100%);
+    transform: translateX(-200%);
+  }
+}
+
+@keyframes product-glass-card-show {
+  from {
+    transform: var(--from);
+  }
+
+  to {
+    transform: var(--to);
+  }
+}
+
+@keyframes product-glass-card-hidden {
+  from {
+    transform: var(--to);
+  }
+
+  to {
+    transform: var(--from);
+  }
+}
+
+@keyframes opacity-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-hidden {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes testimoni-card-show {
+  from {
+    transform: translateX(-150%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes testimoni-card-hidden {
+  from {
+    transform: translateX(0);
+  }
+  
+  to {
+    transform: translateX(-150%);
   }
 }
