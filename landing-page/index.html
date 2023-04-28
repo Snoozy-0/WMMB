@@ -51,6 +51,8 @@
           <span></span>
         </li>
       </ul>
+
+      <a href="" class="join-us-button">Join Now</a>
     </nav>
 
     <div class="container">
@@ -58,7 +60,7 @@
         <div class="color"></div>
         <div class="color"></div>
 
-        <div class="content show" id="home" style="z-index: 5">
+        <div class="content show" id="home" style="z-index: 6">
           <img class="header-image" src="./assets/earth.png" alt="earth.png" />
           <div class="glass-card">
             <div class="top-section">
@@ -88,7 +90,7 @@
           </div>
         </div>
 
-        <div class="content" id="about-us" style="z-index: 4">
+        <div class="content" id="about-us" style="z-index: 5">
           <img class="header-image" src="./assets/factory.png" alt="factory" />
 
           <div class="glass-card-container">
@@ -106,7 +108,7 @@
           </div>
         </div>
 
-        <div class="content" id="why-us" style="z-index: 3">
+        <div class="content" id="why-us" style="z-index: 4">
           <div class="glass-card-container">
             <div
               class="glass-card"
@@ -159,7 +161,7 @@
           </div>
         </div>
 
-        <div class="content" id="blog" style="z-index: 2">
+        <div class="content" id="blog" style="z-index: 3">
           <div class="featured">
             <div class="blog-card">
               <div class="image"></div>
@@ -211,7 +213,7 @@
           </div>
         </div>
 
-        <div class="content" id="testimoni" style="z-index: 1">
+        <div class="content" id="testimoni" style="z-index: 2">
           <div class="glass-card-container">
             <div class="glass-card">
               <div>
@@ -286,10 +288,62 @@
             </div>
           </div>
         </div>
+
+        <div class="content" id="contact" style="z-index: 1">
+          <div>
+            <h1>Interested or Have a Question?</h1>
+            <p>Don't shy, we'll help you enytime</p>
+            <a href="www.facebook.com" class="contact-button">Mail Us</a>
+
+            <div class="contact-footer">
+              <div>
+                <h3 class="footer-title">Address</h3>
+                <p>BSD office, Jakarta, Indonesia</p>
+                <p>Copyright by Bitlink Project</p>
+              </div>
+              <div>
+                <h3 class="footer-title">Links</h3>
+                <ul style="list-style: none;">
+                  <li>
+                    <a href="#home" class="nav-link" data-target="#home">Home</a>
+                  </li>
+                  <li>
+                    <a href="#about-us" class="nav-link" data-target="#about-us"
+                      >About Us</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#why-us" class="nav-link" data-target="#why-us">Why Us</a>
+                  </li>
+                  <li>
+                    <a href="#blog" class="nav-link" data-target="#blog">Blog</a>
+                  </li>
+                  <li>
+                    <a href="#testimoni" class="nav-link" data-target="#testimoni"
+                      >Testimoni</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#contact" class="nav-link" data-target="#contact">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="footer-title">Social Media</h3>
+                <ul style="list-style: none;">
+                  <li>
+                    <a href="#home" class="nav-link" data-target="#home">Facebook</a>
+                  </li>
+                  <li>
+                    <a href="#about-us" class="nav-link" data-target="#about-us">Instagram</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
-
-    <div class="main-content"></div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"
@@ -318,7 +372,7 @@
 
             prev = id;
 
-            $(id).css("z-index", 3).removeClass("hidden").addClass("show");
+            $(id).css("z-index", 6).removeClass("hidden").addClass("show");
           }, 400);
         });
       });
